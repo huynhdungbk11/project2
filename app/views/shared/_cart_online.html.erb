@@ -1,0 +1,17 @@
+<% @cart.items.each do |item| %>
+  <ul>
+    <li class="clearfix">
+      <%= image_tag item.product.image.url(:mini), class: "productimg" %>
+      <h4><%= item.product.name %></h4>
+      <div class="clearfix"></div>
+      <span class="item-price">
+        <%= total_price_product item %>
+      </span>
+      <span class="quantity">
+        <%= t "share_cart_online_quantity" %>
+        <%= item.quantity %>
+      </span>
+    </li>
+  </ul>
+  <hr>
+<% end %>

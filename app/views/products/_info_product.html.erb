@@ -1,0 +1,53 @@
+<div class="info-product container">
+  <div class="col-md-7 left">
+    <div class="header">
+      <%= image_tag @product.image.url, class: "image-url" %>
+    </div>
+    <div class="bottom">
+      <hr>
+    </div>
+  </div>
+  <div class="col-md-5 right">
+    <hr>
+    <h1>
+    <p class="glyphicon glyphicon-cutlery fa-2x text-success"></p>
+      <%= @product.name %>
+    </h1>
+    <hr>
+    <h2><%= @product.description %></h2>
+    <hr>
+    <h3>
+      <p class="glyphicon glyphicon-usd"></p>
+      <%= product_price @product.price %>
+    </h3>
+    <hr>
+    <p class="aa-book-avilability">
+      <span>
+      <strong><%= t "product_rating" %>: </strong>
+      </span>
+    </p>
+    <div class="aa-product-rating rating" id = "rating_star">
+      <% i = 1 %>
+      <% while i <= @product.rating.floor do %>
+        <%= show_rating "star-active" %>
+        <% i += 1 %>
+      <% end %>
+      <% while i <= 5 do %>
+        <%= show_rating "" %>
+        <% i += 1 %>
+      <% end %>
+    </div>
+    <hr>
+    <div>
+      <%= render "rate_form", object: @product %>
+    </div>
+    <hr>
+    <%= social_share_button_tag @product.name %>
+    <hr>
+    <%= link_to cart_path(@product.id), remote: true,
+      method: :put, class: "btn btn_add_to_cart" do %>
+      <span class="glyphicon glyphicon-shopping-cart"></span>
+      <%= t "cart.add_to_card" %>
+    <% end %>
+  </div>
+</div>

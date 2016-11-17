@@ -1,0 +1,35 @@
+<%= csrf_meta_tag %>
+<%= render "layouts/header_index" %>
+<h1 class="heading wow fadeInUp"
+  data-wow-duration="400ms"
+  data-wow-delay="500ms" ><%= t "about_information" %><span>
+  <%= t "about_product" %></span> </br><%= t "about_website" %><span>
+  <%= t "about_framgia" %></span>
+</h1>
+<div class="page-content">
+  <div class="container">
+    <div class="row cart-item-show-info">
+      <%= render "info_product" %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="response">
+    <h3><%= t "comments" %>(<%= @comments.length %>)</h3>
+  </div>
+  <div id="comments-container">
+    <%= paginate @comments %>
+    <%= render @comments %>
+  </div>
+  <div class="opinion">
+    <input type="hidden" value="<%= @product.id %>" id="product-id">
+    <div class="form-group">
+      <input type="text" name="content" id = "content" >
+    </div>
+    <div class="form-group">
+      <button id="comment" >
+        <%= t "comments" %>
+      </button>
+  </div>
+</div>
+<%= render "layouts/footer_index" %>

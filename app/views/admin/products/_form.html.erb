@@ -1,0 +1,39 @@
+<%= form_for [:admin, @product] do |f| %>
+  <%= render "shared/error_messages", object: @product %>
+  <div class="form-group">
+    <%= f.label :category_id %>
+    <%= f.select :category_id,
+      @categories.collect {|p| [ p.name, p.id ]}, {}, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, value: check_name(@suggestion) , class: "form-control",
+      placeholder: t("word_name") %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, value: check_description(@suggestion),
+    placeholder: t("product_description"), class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price %>
+    <%= f.number_field :price, value: check_price(@suggestion),
+      placeholder: t("product_price"), class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :kind %>
+    <%= f.select :kind,
+      Product.kinds.keys.map{|status| [status.titleize, status]}, {},
+      class: "form-control inline" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, value: check_image(@suggestion), class: "form-control" %>
+  </div>
+  <% unless check_suggestion @suggestion %>
+    <%= hidden_field_tag(:suggestion_id, @suggestion.id) %>
+  <% end %>
+  <%= link_to t("back_button"), :back, class: "btn btn-warning" %>
+  <%= f.submit t("submit_button"),
+    class: "btn btn-primary space-top-submit" %>
+<% end %>

@@ -1,0 +1,40 @@
+<%= link_to t(:view_all_carts), carts_path %>
+<div class="scroll">
+  <% @cart.items.each do |item| %>
+    <hr>
+    <%= image_tag item.product.image.url(:mini) %>
+    <%= item.product.name %>
+    <table class="table-share-cart">
+      <thead>
+        <tr>
+          <th class="th1"><%= t "cart.quantity" %></th>
+          <th class="th2"><%= t "cart.price" %></th>
+          <th class="th3"><%= t "cart.action" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span><%= item.quantity %></span></td>
+          <td><span><%= product_price item.total_price %></span></td>
+          <td class="pull-right">
+            <%= link_to cart_path(item.product_id),
+              method: :delete, remote: true, class: "pull-right" do %>
+              <p class="glyphicon glyphicon-trash text-danger
+                action-padding"></p>
+            <% end %>
+            <%= link_to edit_cart_path(item.product_id),
+              remote: true, class: "pull-right" do %>
+              <p class="glyphicon glyphicon-minus
+                text-primary action-padding"></p>
+            <% end %>
+            <%= link_to cart_path(item.product_id), remote: true,
+              method: :put, class: "pull-right" do %>
+              <p class="glyphicon glyphicon-plus text-success
+                action-padding"></p>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+</div>

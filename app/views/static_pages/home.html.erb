@@ -1,0 +1,514 @@
+<section id="hero-area">
+  <%= link_to "#" do %>
+    <%= image_tag("header.jpg", class: "img-responsive") %>
+  <% end %>
+</section>
+<nav id="navigation">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                  <%= link_to "#", class: "navbar-brand" do %>
+                    <h2><%= t "title_home" %></h2>
+                  <% end %>
+              </div>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right" id="top-nav">
+                  <li>
+                    <%= link_to t(:menu_home), "#" %>
+                  </li>
+                  <li>
+                    <%= link_to t(:menu_about), "#" %>
+                  </li>
+                  <li>
+                    <%= link_to t(:menu_product), "#" %>
+                  </li>
+                  <li>
+                    <%= link_to t(:menu_price), "#" %>
+                  </li>
+                  <% if user_signed_in? %>
+                    <li>
+                      <%= link_to t(:menu_edit_profile),
+                        edit_user_registration_path %>
+                    </li>
+                    <li>
+                      <%= link_to t(:menu_sign_out), destroy_user_session_path, method: :delete %>
+                    </li>
+                  <% else %>
+                    <li>
+                      <%= link_to t(:menu_login), new_user_session_path %>
+                    </li>
+                    <li>
+                      <%= link_to t(:menu_sign_up), new_user_registration_path %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<nav class="navbar navbar-inverse navbar-fixed-top navigation1">
+<div class="container-fluid">
+  <div class="navbar-header">
+    <%= link_to t(:title_home), root_path, class: "navbar-brand" %>
+  </div>
+  <div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to t(:menu_home), "#" %>
+        </li>
+        <li>
+          <%= link_to t(:menu_about), "#" %>
+        </li>
+        <li>
+          <%= link_to t(:menu_product), "#" %>
+        </li>
+        <li>
+          <%= link_to t(:menu_price), "#" %>
+        </li>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to t(:menu_edit_profile),
+              edit_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to t(:menu_sign_out), destroy_user_session_path, method: :delete %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to t(:menu_login), new_user_session_path %>
+          </li>
+          <li>
+            <%= link_to t(:menu_sign_up), new_user_registration_path %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+</nav>
+<section id="slider">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block wow fadeInUp" data-wow-duration="500ms"
+          data-wow-delay="300ms">
+          <div class="title">
+            <h3><%= t "slide_list" %><span><%= t "slide_category" %></span></h3>
+          </div>
+          <div id="owl-example" class="owl-carousel">
+            <div>
+              <%= link_to "#" do %>
+                <%= image_tag("slider-img-1.jpg",
+                  class: "img-responsive", alt: "#") %>
+              <% end %>
+              <p><%= t "slide_type1" %></p>
+            </div>
+            <div>
+              <%= link_to "#" do %>
+                <%= image_tag("slider-img-2.jpg",
+                  class: "img-responsive", alt: "#") %>
+              <% end %>
+              <p><%= t "slide_type2" %></p>
+            </div>
+            <div>
+              <%= link_to "#" do %>
+                <%= image_tag("slider-img-3.jpg",
+                  class: "img-responsive", alt: "#") %>
+              <% end %>
+              <p><%= t "slide_type3" %></p>
+            </div>
+            <div>
+              <%= link_to "#" do %>
+                <%= image_tag("slider-img-4.jpg",
+                  class: "img-responsive", alt: "#") %>
+              <% end %>
+              <p><%= t "slide_type4" %></p>
+            </div>
+            <div>
+              <%= link_to "#" do %>
+                <%= image_tag("slider-img-1.jpg",
+                  class: "img-responsive", alt: "#") %>
+              <% end %>
+              <p><%= t "slide_type5" %></p>
+            </div>
+            <div>
+              <%= link_to "#" do %>
+                <%= image_tag("slider-img-2.jpg",
+                  class: "img-responsive", alt: "#") %>
+              <% end %>
+              <p><%= t "slide_type6" %></p>
+            </div>
+            <div>
+              <%= link_to "#" do %>
+                <%= image_tag("slider-img-3.jpg",
+                  class: "img-responsive", alt: "#") %>
+              <% end %>
+              <p><%= t "slide_type7" %></p>
+            </div>
+            <div>
+              <%= link_to "#" do %>
+                <%= image_tag("slider-img-4.jpg",
+                  class: "img-responsive", alt: "#") %>
+              <% end %>
+              <p><%= t "slide_type8" %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="about-us">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block">
+          <%= link_to "#" do %>
+            <%= image_tag("cooker-img.png", class: "wow fadeInUp") %>
+          <% end %>
+          <h1 class="heading wow fadeInUp"
+            data-wow-duration="400ms"
+            data-wow-delay="500ms" ><%= t "about_your" %><span>
+            <%= t "about_framgia" %></span> </br><%= t "about_website" %><span>
+            <%= t "about_view" %></span>
+          </h1>
+          <p class="wow fadeInUp" data-wow-duration="300ms"
+            data-wow-delay="600ms"><%= t "about_content1" %>
+            </br><%= t "about_content2" %>
+            </br><%= t "about_content3" %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block">
+          <h1 class="heading"><%= t "blog_list" %>
+            <span><%= t "blog_food" %></span><%= t "blog_and" %>
+            <span><%= t "blog_drink" %></span>
+          </h1>
+          <ul>
+            <% @products.each_with_index do |product, index| %>
+              <% if condition_show index %>
+                <li class="wow fadeInLeft"
+                  data-wow-duration="300ms" data-wow-delay="300ms">
+                  <div class="blog-img">
+                    <%= link_to "#" do %>
+                      <%= image_tag( product.image.url(:original),
+                        class: "wow fadeInUp",
+                        alt: "blog-img") %>
+                    <% end %>
+                  </div>
+                  <div class="content-right">
+                    <h3 class="pr_name_h3"><%= product.name %></h3>
+                    <p class="pr_des_p"><%= product.description %></p>
+                    <div class="interaction_area">
+                      <%= link_to cart_path(product.id), remote: true,
+                        method: :put, class: "btn btn_add_to_cart" do %>
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        <%= t "cart.add_to_card" %>
+                      <% end %>
+                      <%= link_to product_path(product),
+                        class: "btn btn-default btn_add_favorite" do %>
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                        <%= t "common.view_button" %>
+                      <% end %>
+                    </div>
+                  </div>
+                </li>
+              <% else %>
+                <li class="wow fadeInLeft"
+                  data-wow-duration="300ms" data-wow-delay="500ms">
+                  <div class="content-left">
+                    <h3 class="pr_name_h3"><%= product.name %></h3>
+                    <p class="pr_des_p"><%= product.description %></p>
+                    <div class="interaction_area">
+                      <%= link_to cart_path(product.id), remote: true,
+                        method: :put, class: "btn btn_add_to_cart" do %>
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        <%= t "cart.add_to_card" %>
+                      <% end %>
+                      <%= link_to product_path(product),
+                        class: "btn btn-default btn_add_favorite" do %>
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                        <%= t "common.view_button" %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <div class="blog-img">
+                    <%= link_to "#" do %>
+                      <%= image_tag( product.image.url(:original), class: "wow fadeInUp",
+                        alt: "blog-img") %>
+                    <% end %>
+                  </div>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+          <a class="btn btn-default btn-more-info wow bounceIn"
+            data-wow-duration="500ms" data-wow-delay="1200ms"
+            href="#" role="button"><%= t "blog_more_info" %></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="price">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block">
+          <h1 class="heading wow fadeInUp"
+            data-wow-duration="300ms" data-wow-delay="300ms"><%= t "price_our" %>
+            <span><%= t "price_menu" %></span><%= t "price_the" %>
+            <span><%= t "price_price" %></span>
+          </h1>
+          <p class="wow fadeInUp"
+            data-wow-duration="300ms" data-wow-delay="400ms">
+            <%= t "price_price_content" %>
+          </p>
+          <div class="pricing-list">
+            <div class="title">
+              <h3><%= t "price_featured" %>
+                <span><%= t "price_week" %></span>
+              </h3>
+            </div>
+            <ul>
+              <li class="wow fadeInUp"
+                data-wow-duration="300ms" data-wow-delay="300ms">
+                <div class="item">
+                  <div class="item-title">
+                    <h2><%= t "price_name" %></h2>
+                    <div class="border-bottom"></div>
+                    <span><%= t "price_right_price" %></span>
+                  </div>
+                  <p><%= t "price_bot_content" %></p>
+                </div>
+              </li>
+              <li class="wow fadeInUp"
+                data-wow-duration="300ms" data-wow-delay="300ms">
+                <div class="item">
+                  <div class="item-title">
+                    <h2><%= t "price_name" %></h2>
+                    <div class="border-bottom"></div>
+                    <span><%= t "price_right_price" %></span>
+                  </div>
+                  <p><%= t "price_bot_content" %></p>
+                </div>
+              </li>
+              <li class="wow fadeInUp"
+                data-wow-duration="300ms" data-wow-delay="300ms">
+                <div class="item">
+                  <div class="item-title">
+                    <h2><%= t "price_name" %></h2>
+                    <div class="border-bottom"></div>
+                    <span><%= t "price_right_price" %></span>
+                  </div>
+                  <p><%= t "price_bot_content" %></p>
+                </div>
+              </li>
+              <li class="wow fadeInUp"
+                data-wow-duration="300ms" data-wow-delay="300ms">
+                <div class="item">
+                  <div class="item-title">
+                    <h2><%= t "price_name" %></h2>
+                    <div class="border-bottom"></div>
+                    <span><%= t "price_right_price" %></span>
+                  </div>
+                  <p><%= t "price_bot_content" %></p>
+                </div>
+              </li>
+              <li class="wow fadeInUp"
+                data-wow-duration="300ms" data-wow-delay="300ms">
+                <div class="item">
+                  <div class="item-title">
+                    <h2><%= t "price_name" %></h2>
+                    <div class="border-bottom"></div>
+                    <span><%= t "price_right_price" %></span>
+                  </div>
+                  <p><%= t "price_bot_content" %></p>
+                </div>
+              </li>
+              <li class="wow fadeInUp"
+                data-wow-duration="300ms" data-wow-delay="300ms">
+                <div class="item">
+                  <div class="item-title">
+                    <h2><%= t "price_name" %></h2>
+                    <div class="border-bottom"></div>
+                    <span><%= t "price_right_price" %></span>
+                  </div>
+                  <p><%= t "price_bot_content" %></p>
+                </div>
+              </li>
+            </ul>
+            <a class="btn btn-default pull-right wow bounceIn"
+              data-wow-duration="500ms" data-wow-delay="1200ms"
+              href="#" role="button"><%= t "blog_more_info" %></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="subscribe">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block">
+          <h1 class=" heading wow fadeInUp" data-wow-duration="300ms"
+            data-wow-delay="300ms"><%= t "search_a" %>
+            <span><%= t "search_b" %></span><%= t "search_c" %>
+          </h1>
+          <p class="wow fadeInUp" data-wow-duration="300ms"
+            data-wow-delay="400ms">
+            <%= t "search_content" %>
+          </p>
+          <%= form_tag "#", method: :get, class: "form-inline" do %>
+            <div class="form-group">
+              <div class="input-group">
+                <%= text_field_tag :search, params[:search],
+                  class: "form-control", id: "exampleInputAmount",
+                  placeholder: "Enter your foods & drink..." %>
+                <div class="input-group-addon">
+                  <%= submit_tag t("search_button"), class: "btn-submit-a" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="block wow fadeInLeft"  data-wow-delay="200ms">
+          <h3><%= t "footer_contact" %>
+            <span><%= t "footer_contact_info" %></span>
+          </h3>
+          <div class="info">
+            <ul>
+              <li>
+                <h4><i class="fa fa-phone"></i><%= t "footer_phone" %></h4>
+                <p><%= t "footer_phone_number" %></p>
+              </li>
+              <li>
+                <h4><i class="fa fa-phone"></i><%= t "footer_phone" %></h4>
+                <p><%= t "footer_phone_number" %></p>
+              </li>
+              <li>
+                <h4><i class="fa fa-phone"></i><%= t "footer_phone" %></h4>
+                <p><%= t "footer_phone_number" %></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="block wow fadeInLeft"  data-wow-delay="700ms">
+          <h3><%= t "footer_contact" %>
+            <span><%= t "footer_contact_info" %></span>
+          </h3>
+          <div class="blog">
+            <ul>
+              <li>
+                <h4><i class="fa fa-phone"></i><%= t "footer_phone" %></h4>
+                <p><%= t "footer_phone_number" %></p>
+              </li>
+              <li>
+                <h4><i class="fa fa-phone"></i><%= t "footer_phone" %></h4>
+                <p><%= t "footer_phone_number" %></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="block wow fadeInLeft"  data-wow-delay="1100ms">
+          <div class="gallary">
+            <h3><%= t "footer_contact" %>
+              <span><%= t "footer_contact_info" %></span>
+            </h3>
+            <ul>
+              <li>
+                <%= link_to "#" do %>
+                  <%= image_tag("photo-1.jpg", alt: "#") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "#" do %>
+                  <%= image_tag("photo-2.jpg", alt: "#") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "#" do %>
+                  <%= image_tag("photo-3.jpg", alt: "#") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "#" do %>
+                  <%= image_tag("photo-4.jpg", alt: "#") %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+          <div class="social-media-link">
+            <h3><%= t "footer_contact" %>
+              <span><%= t "footer_contact_info" %></span>
+            </h3>
+            <ul>
+              <li>
+                <%= link_to "#" do %>
+                  <i class="fa fa-twitter"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "#" do %>
+                  <i class="fa fa-facebook"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "#" do %>
+                  <i class="fa fa-dribbble"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "#" do %>
+                  <i class="fa fa-behance"></i>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer id="footer-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="block">
+          <p><%= t "footer_button_copy" %>
+            <%= link_to t(:footer_button_ct), "#" %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

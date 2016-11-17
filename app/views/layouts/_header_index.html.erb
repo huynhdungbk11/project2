@@ -1,0 +1,99 @@
+<section id="hero-area">
+  <%= link_to "#" do %>
+    <%= image_tag "header.jpg", class: "img-responsive" %>
+  <% end %>
+</section>
+<nav id="navigation">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <%= link_to "#", class: "navbar-brand" do %>
+                  <h2><%= t "title_home" %></h2>
+                <% end %>
+              </div>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right" id="top-nav">
+                  <li>
+                    <%= link_to t(:menu_home), "#" %>
+                  </li>
+                  <li>
+                    <%= link_to t(:menu_about), "#" %>
+                  </li>
+                  <li>
+                    <%= link_to t(:menu_product), "#" %>
+                  </li>
+                  <li>
+                    <%= link_to t(:menu_price), "#" %>
+                  </li>
+                  <% if user_signed_in? %>
+                    <li>
+                      <%= link_to t(:menu_edit_profile),
+                        edit_user_registration_path %>
+                    </li>
+                    <li>
+                      <%= link_to t(:menu_sign_out), destroy_user_session_path,
+                        method: :delete, data: { confirm: t(:sign_out_sure) } %>
+                    </li>
+                  <% else %>
+                    <li>
+                      <%= link_to t(:menu_login), new_user_session_path %>
+                    </li>
+                    <li>
+                      <%= link_to t(:menu_sign_up), new_user_registration_path %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<nav class="navbar navbar-inverse navbar-fixed-top navigation1">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to t(:title_home), root_path, class: "navbar-brand" %>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to t(:menu_home), "#" %>
+          </li>
+          <li>
+            <%= link_to t(:menu_about), "#" %>
+          </li>
+          <li>
+            <%= link_to t(:menu_product), "#" %>
+          </li>
+          <li>
+            <%= link_to t(:menu_price), "#" %>
+          </li>
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to t(:menu_edit_profile),
+                edit_user_registration_path %>
+            </li>
+            <li>
+              <%= link_to t(:menu_sign_out), destroy_user_session_path,
+                method: :delete, data: { confirm: t(:sign_out_sure) } %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to t(:menu_login), new_user_session_path %>
+            </li>
+            <li>
+              <%= link_to t(:menu_sign_up), new_user_registration_path %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

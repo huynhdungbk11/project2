@@ -1,0 +1,21 @@
+<tr>
+  <td><%= increase_one index %></td>
+  <td><%= object.name %></td>
+  <td><%= object.description %></td>
+  <td>
+    <%= number_with_precision object.price, precision: 0 %> VND
+  <td><%= object.message %></td>
+  <td>
+    <% if object.status?  %>
+      <span class="label label-danger">Accepted</span>
+    <% else %>
+      <span class="label label-info">Pending</span>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to t("suggestions.edit"), edit_suggestion_path(object), class: "button button_view" %>
+    <%= link_to t("suggestions.delete"), suggestion_path(object),
+      method: :delete, data: {confirm: t("suggestion.delete_message")}, class: "button button_edit" %>
+  </td>
+  <td><%= image_tag object.image.url(:medium) %></td>
+</tr>

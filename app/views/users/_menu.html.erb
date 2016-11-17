@@ -1,0 +1,36 @@
+<nav class="navbar-default navbar-side" role="navigation">
+  <div class="user-sidebar-collapse">
+    <ul class="nav" id="main-menu">
+      <div class="panel-heading user-product-nav">
+        <h2 class="panel-title">Customer section</h2>
+      </div>
+      <li class="text-center">
+        <%= image_tag("profile.jpg", class: "user-image img-responsive") %>
+      </li>
+      <li>
+        <%= link_to root_url do %>
+          <i class="fa fa-cutlery fa-3x"></i>
+          <%= t "menu_products" %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to root_url do %>
+          <i class="fa fa-shopping-cart fa-3x"></i>
+          <%= t "menu_carts" %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to root_url do %>
+          <i class="fa fa-tasks fa-3x"></i>
+          <%= t "menu_orders" %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to root_url do %>
+          <i class="fa fa-truck fa-3x"></i>
+          <%= t "menu_suggestions" %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>

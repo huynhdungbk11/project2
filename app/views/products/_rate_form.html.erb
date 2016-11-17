@@ -1,0 +1,7 @@
+<div id=<%= "rate_form_#{object.id}" %> class = "rate_form">
+  <% if current_user.rating? object %>
+    <%= render "products/rerate", object: object %>
+  <% else %>
+    <%= render "products/rate", object: object %>
+  <% end %>
+</div>

@@ -1,0 +1,47 @@
+avatar:
+  medium: "300x300>"
+  thumb: "100x100>"
+  mini: "48x48>"
+  default_url: "/images/:style/missing.png"
+per_page:
+  products: 6
+  comments: 10
+precision: 0
+image:
+  medium: "220x220>"
+  thumb: "100x100>"
+  mini: "48x48>"
+  default_url: "/images/:style/missing.png"
+index:
+  id: 1
+  products: 5
+  suggestion: 1
+filter:
+  conditions: ["Drink" , "Food", "All"]
+filt:
+  conditions:
+    is_drink: Drink
+    is_food: Food
+    all: All
+show_product:
+  num_products: 6
+currency:
+  delimiter: ","
+  format: "%n %u"
+  precision: 0
+condition:
+  index_default: 1
+  index_one: 1
+  index_tow: 2
+  index_fine: 5
+  index_six: 6
+item:
+  num_quantitty: 1
+suggestion:
+  index: 1
+rates: [1, 2, 3, 4, 5]
+filte:
+  conditions:
+    is_accept: Transaction
+    not_eccept: Warning
+    is_confirm: Corfirm

@@ -1,0 +1,25 @@
+<tr>
+  <td><%= index + Settings.suggestion.index %></td>
+  <td><%= object.user.name %></td>
+  <td><%= object.name %></td>
+  <td><%= object.description %></td>
+  <td>
+    <%= number_with_precision(object.price,
+      precision: 0) %> VND
+  </td>
+  <td><%= object.message %></td>
+  <td>
+    <% if object.status?  %>
+      <span class="label label-danger">Accepted</span>
+    <% else %>
+      <span class="label label-info">Pending</span>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to t("form_accept_suggestion"),
+      new_admin_product_path(object: object.id), class: "button button_accept" %>
+    <%= link_to t("form_refuse_suggestion"), admin_suggestion_path(object), class: "button button_view",
+      method: :delete, data: {confirm: t("data_message")} %>
+  </td>
+  <td><%= image_tag object.image.url(:medium) %></td>
+</tr>

@@ -1,0 +1,15 @@
+<%= render "layouts/header_index" %>
+<h1 class="heading wow fadeInUp"
+  data-wow-duration="400ms"
+  data-wow-delay="500ms" ><%= t "about_information" %><span>
+  <%= t "about_product" %></span> </br><%= t "about_website" %><span>
+  <%= t "about_framgia" %></span>
+</h1>
+<div class="page-content">
+  <div class="container">
+    <div class="row cart-item-show-info">
+      <%= render "info_order" %>
+    </div>
+  </div>
+</div>
+<%= render "layouts/footer_index" %>

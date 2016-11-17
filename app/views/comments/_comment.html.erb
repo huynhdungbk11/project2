@@ -1,0 +1,25 @@
+<div class="media response-info first-comment-style">
+  <div id="comment-<%= comment.id %>">
+    <div class="response-text-left" style="float: left;">
+      <%= image_tag(comment.user.avatar.url(:thumb), class: "img-responsive img-circle") %>
+    </div>
+    <div class="media-body response-text-right comment-style" id="comment-<%= comment.id %>-content">
+      <h4><%= comment.user.name %></h4>
+      <p><%= comment.content %></p>
+      <p class = "time_word"><i class="fa fa-clock-o"></i> Created <%= time_ago_in_words(comment.created_at)%> ago</p>
+    </div>
+    <% if current_user.present? && current_user.is_user?(comment.user) %>
+      <%= link_to t("edit"), "javascript:;", id: "edit-comment-#{comment.id}",
+        class: "edit-comment" %>
+      <%= link_to t("delete"), comment_path(comment), method: :delete,
+        data:{confirm: "You sure?", remote: "true"}, title: comment.content %>
+    <% end %>
+  </div>
+  <div class="edit-form">
+    <%= form_for [comment] do |f| %>
+      <%= f.label :content %>
+      <%= f.text_area :content, class: "form-control" %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

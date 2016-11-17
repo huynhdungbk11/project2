@@ -1,0 +1,40 @@
+<div id="footerSlideContainer">
+  <div id="footerSlideButton">
+  </div>
+  <div id="footerSlideContent">
+    <div id="footerSlideText">
+      <div class="container">
+        <ul class="nav nav-tabs" >
+          <li>
+            <a data-toggle="tab" class="tab-menu-chat" href="#menu1">
+              <%= t "tab_menu_chatwork" %>
+            </a>
+          </li>
+          <li>
+            <a data-toggle="tab" class="tab-menu-chat" href="#menu2">
+              <span class="glyphicon glyphicon-shopping-cart"></span>
+              <span class="items-count"><%= @cart.count %></span>
+              <span class="caret"></span>
+            </a>
+          </li>
+          <li>
+            <a data-toggle="tab" class="tab-menu-chat" href="#menu3">
+             <%= t "tab_menu_email" %>
+            </a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div id="menu1" class="tab-pane fade">
+            <h3><%= t "tab_menu_chatwork" %></h3>
+          </div>
+          <div id="menu2" class="tab-pane fade tab-menu2">
+            <%= render "shared/cart" %>
+          </div>
+          <div id="menu3" class="tab-pane fade">
+            <h3><%= t "tab_menu_email" %></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

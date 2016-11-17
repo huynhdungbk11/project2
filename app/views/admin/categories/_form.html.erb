@@ -1,0 +1,7 @@
+<%= form_for [:admin, @category], remote: true, html: { multipart: true } do |f| %>
+  <%= f.text_field :name, class: "form-control reset-input", id: "category_name_form",
+    placeholder: t("admin_form_category_name") %>
+  <%= f.text_area :description, class: "form-control reset-input", id: "category_description_form",
+    placeholder: t("admin_form_category_description") %>
+  <%= f.submit t("admin_form_category_create"),id: "create_cate_button", class: "button_submit button" %>
+<% end %>

@@ -1,0 +1,8 @@
+<%= form_tag products_path, method: :get, id: "products_search" do %>
+  <%= hidden_field_tag :filter_by, params[:filter_by] %>
+  <%= hidden_field_tag :category_id, params[:category_id] %>
+  <div>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag t "search" %>
+  </div>
+<% end %>

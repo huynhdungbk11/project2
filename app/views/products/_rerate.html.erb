@@ -1,0 +1,23 @@
+<%= form_for current_user.active_rates.find_by(product_id: object.id),
+  remote: true do |f| %>
+  <table class="data-table" id="product-review-table">
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <% Settings.rates.each do |rate| %>
+          <th><span class="nobr"><%= rate %></span></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= t "product_rate" %>: </td>
+        <% Settings.rates.each do |rate| %>
+        <td>
+          <%= f.radio_button :rate, rate, class: "radio" %>
+        </td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+<% end %>

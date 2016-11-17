@@ -1,0 +1,14 @@
+$('#rate_form_<%= @product.id %>').html('<%= j render "products/rerate", object: @product %>');
+rating_star = "";
+rating_number = <%= @product.rating.floor %>
+i = 1;
+while (i <= rating_number) {
+  rating_star += '<span class = "star-active">☆</span>';
+  i++;
+}
+while (i <= 5) {
+  rating_star += '<span>☆</span>';
+  i++;
+}
+$('#rating_star').html(rating_star);
+$('#rating_number').html('<%= @product.rating %>')

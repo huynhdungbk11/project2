@@ -1,0 +1,44 @@
+<% if @order.blank? %>
+  <h1><%= t "list.not_product" %></h1>
+<% else %>
+  <div class="content-order">
+    <hr><%= @order.created_at.strftime t(:time_order) %>
+    <% if @order.is_accept? %>
+      <label class="label label-succsess">Ordered</label>
+    <% else %>
+      <label class="label label-warning">Waiting</label>
+    <% end %>
+    <%= link_to t(:view_all_order), orders_path,
+      class: "btn btn-success btn-delete-order" %>
+    <%= link_to t(:delete_order), order_path(@order),
+      method: :delete, remote: :true, data: {confirm: t(:are_ready)},
+      class: "btn btn-danger btn-delete-order" %>
+    <hr>
+    <table class="table table-striped table-bordered table-hover table-condensed"
+      id="cart">
+      <thead>
+        <th><%= t "list.product_images" %></th>
+        <th><%= t "list.product_name" %></th>
+        <th><%= t "list.product_price" %></th>
+        <th><%= t "list.product_quantity" %></th>
+        <th><%= t "list.total_price" %></th>
+      </thead>
+      <% @order.items.each do |item| %>
+        <tbody>
+          <% if item.product.image.present? %>
+            <td><%= image_tag item.product.image.url(:medium) %></td>
+          <% else %>
+            <td><%= image_tag item.product.image.url(:default_url) %></td>
+          <% end %>
+          <td><%= item.product.name %></td>
+          <td><%= product_price item.product.price %></td>
+          <td><%= item.number %></td>
+          <td><%= product_price total_price_order item %></td>
+        </tbody>
+      <% end %>
+    </table>
+    <div class="clearfix"></div>
+      <p><%= t "total_order_all" %><%= product_price @order.cost %></p><hr>
+    <hr>
+  </div>
+<% end %>

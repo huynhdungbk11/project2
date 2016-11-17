@@ -1,0 +1,8 @@
+$('.cart-items').html('<%= escape_javascript(
+  render partial: "shared/cart_online") %>')
+$('.tab-menu2').html('<%= escape_javascript(
+  render partial: "shared/cart") %>');
+$('.items-count').text('<%= @cart.count %>');
+$('.cart-item-show').html('<%= escape_javascript(
+  render partial: "carts/list") %>');
+$('.items-price').html('<p><%= total_price_product @cart %></p>');

@@ -1,0 +1,44 @@
+<section>
+  <div id="container_demo" >
+    <a class="hiddenanchor" id="toregister"></a>
+    <a class="hiddenanchor" id="tologin"></a>
+    <div id="wrapper">
+      <div id="login" class="animate form form_demo">
+        <%= form_for resource, as: resource_name, class: "omb_loginForm",
+          url: session_path(resource_name) do |f| %>
+          <h1><%= t "lg_login" %></h1>
+          <p>
+            <label for="username" class="uname" data-icon="u" >
+              <%= t "lg_email" %>
+            </label>
+            <%= f.email_field :email, autofocus: true, required: "required",
+              class: "username", placeholder: (t "lg_field_email") %>
+          </p>
+          <p>
+            <label for="password" class="youpasswd" data-icon="p">
+              <%= t "lg_pass" %>
+            </label>
+            <%= f.password_field :password, autocomplete: "off",
+              class: "password", required: "required",
+              placeholder: (t "lg_field_pass") %>
+          </p>
+          <p class="keeplogin">
+            <% if devise_mapping.rememberable? -%>
+              <%= f.check_box :remember_me, class: "loginkeeping" %>
+              <%= f.label :remember_me, for: "loginkeeping" %>
+            <% end -%>
+          </p>
+          <p class="login button">
+            <%= f.submit t(:lg_button_login) %>
+          </p>
+          <p class="change_link p_bot">
+            <%= render "devise/shared/links" %>
+          </p>
+          <p>
+            <label class="lb_bot"><%= t "lg_answer_lg" %></label>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

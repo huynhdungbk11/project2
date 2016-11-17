@@ -1,0 +1,28 @@
+<tr class="tr-tow">
+  <td class="product_image">
+    <%= image_tag product.image.url(:medium) %>
+  </td>
+  <td>
+    <%= product.name %>
+  </td>
+  <td>
+    <%= product.description %>
+  </td>
+  <td>
+    <%= number_with_precision product.price, precision: Settings.precision %>
+    <%= t "product_vnd" %>
+  </td>
+  <td>
+    <%= link_to t(:product_link_to_show),
+      admin_product_path(product),
+      class: "btn btn-info btn-mn" %>
+    <%= link_to t(:product_link_to_edit),
+      edit_admin_product_path(product),
+      class: "btn btn-success btn-mn" %>
+    <%= link_to t(:product_link_to_delete),
+      admin_product_path(product),
+      method: :delete, remote: :true,
+      data: {confirm: t(:are_ready)},
+      class: "btn btn-danger btn-mn btn-custom" %>
+  </td>
+</tr>

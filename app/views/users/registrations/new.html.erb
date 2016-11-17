@@ -1,0 +1,64 @@
+<section>
+  <div id="container_demo" >
+    <a class="hiddenanchor" id="toregister"></a>
+    <a class="hiddenanchor" id="tologin"></a>
+    <div id="wrapper">
+      <div id="login" class="animate form form_demo">
+        <%= form_for resource, as: resource_name, class: "omb_loginForm",
+          url: registration_path(resource_name) do |f| %>
+          <%= devise_error_messages! %>
+          <h1><%= t "rg_signup" %></h1>
+          <p>
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true, required: "required",
+              class: "emailsignup", placeholder: (t "lg_field_email") %>
+          </p>
+          <p>
+            <%= f.label :name %>
+            <%= f.text_field :name, autofocus: true, required: "required",
+              class: "usernamesignup", placeholder: (t "rg_field_name") %>
+          </p>
+          <p>
+            <%= f.label :tel %>
+            <%= f.text_field :tel, autofocus: true, required: "required",
+              class: "usernamesignup", placeholder: (t "rg_field_tel") %>
+          </p>
+          <p>
+            <%= f.label :address %>
+            <%= f.text_field :address, autofocus: true, required: "required",
+              class: "usernamesignup", placeholder: (t "rg_field_address") %>
+          </p>
+          <p>
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+            <br/>
+            <%= f.password_field :password, autocomplete: "off",
+              required: "required",
+              class: "passwordsignup", placeholder: (t "lg_field_pass") %>
+          </p>
+          <p>
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off",
+              required: "required",
+              class: "passwordsignup_confirm", placeholder: (t "lg_field_pass") %>
+          </p>
+          <p>
+            <%= f.label :avatar %>:
+            <%= f.file_field :avatar %>
+          </p>
+          <p class="signin button">
+            <%= f.submit t(:rg_signup) %>
+          </p>
+          <p class="change_link p_bot">
+            <%= render "users/shared/links" %>
+          </p>
+          <p>
+            <label class="lb_bot"><%= t "rg_lable_bot" %></label>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

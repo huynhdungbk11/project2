@@ -1,0 +1,13 @@
+<tr class="odd gradeX">
+  <td><%= object.id %></td>
+  <td><%= object.name %></td>
+  <td><%= object.description %></td>
+  <td><%= object.products.size %></td>
+  <td class="button_inline">
+    <%= link_to t("view"), admin_category_path(object),
+      class: "button_view button" %>
+    <%= link_to t("delete"), admin_category_path(object),
+      class: "button_delete button", method: :delete,
+      data: {confirm: t("delete_message")} %>
+  </td>
+</tr>

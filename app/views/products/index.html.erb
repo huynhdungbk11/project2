@@ -1,0 +1,34 @@
+<% provide :title, t("product_show_list") %>
+<div id="blog-products-in">
+  <div class="container">
+    <h1 class="heading"><%= t "blog_list" %>
+      <span><%= t "blog_food" %></span><%= t "blog_and" %>
+      <span><%= t "blog_drink" %></span>
+    </h1>
+    <div class="row">
+      <div class="col-md-3">
+        <%= render "users/menu" %>
+      </div>
+      <div class="col-md-9">
+        <div class="block">
+          <div class="search-and-filter">
+            <div class="user-filter-word">
+              <%= render "filter_form" %>
+            </div>
+            <div>
+              <%= render "search_form" %>
+            </div>
+          </div>
+          <ul>
+            <% if @products.any? %>
+              <div id="products"><%= render @products %></div>
+            <% else %>
+              <%= t "cant_find_result" %>
+            <% end %>
+          </ul>
+        </div>
+        <%= paginate @products %>
+      </div>
+    </div>
+  </div>
+</div>
